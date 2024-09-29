@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Το Σχολείο - 1ο Γυμνάσιο Γέρακα</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #004d00;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Hamburger menu styling */
+        .hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .hamburger-menu div {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        /* Dropdown menu styling */
+        .dropdown {
+            position: absolute;
+            top: 60px;
+            left: 15px;
+            background-color: #004d00;
+            width: 250px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            z-index: 1000;
+        }
+
+        .dropdown.show {
+            max-height: 800px;
+        }
+
+        .dropdown.opened {
+            overflow-y: auto;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        /* Hover effect for dropdown items */
+        .dropdown a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 30px;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: scale(0.8);
+        }
+
+        .dropdown a:hover::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .dropdown a:hover {
+            color: #ddd;
+        }
+
+        /* Logo styling */
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            flex: 1;
+        }
+
+        .logo img {
+            height: 70px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            margin-left: 10px;
+        }
+
+        /* Centering Navigation Bar */
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex: 2;
+        }
+
+        /* Fixing hover box centering and alignment */
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            position: relative;
+            padding: 10px 15px;
+            line-height: 1.2;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        /* Transparent rounded box on hover, centered */
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 30px;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: scale(0.8);
+        }
+
+        .nav-links a:hover::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .nav-links a:hover {
+            color: #ddd;
+        }
+
+        .nav-links .login {
+            background-color: #56C56C;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-align: center;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+        }
+
+        /* Announcements Section Styling */
+        .container {
+            display: flex;
+            flex-direction: row;
+            margin: 20px auto;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            color: #004d00;
+            margin-bottom: 10px;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Hamburger Menu Icon -->
+        <div class="hamburger-menu" onclick="toggleDropdown()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="logo">
+            <img src="school_logo.png" alt="1ο Γυμνάσιο Γέρακα">
+            <h1>1ο Γυμνάσιο Γέρακα</h1>
+        </div>
+
+        <!-- Navigation Bar Centered -->
+        <div class="nav-links">
+            <a href="index.html">Αρχική</a>
+            <a href="#">Το Σχολείο</a>
+            <a href="#">Επικοινωνία</a>
+            <a href="#" class="login">Login</a>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="Αναζήτηση...">
+            <button>Αναζήτηση</button>
+        </div>
+    </header>
+
+    <!-- Dropdown Menu Section -->
+    <div class="dropdown" id="dropdownMenu">
+        <a href="#">Χρήσιμα Έντυπα</a>
+        <a href="#">Δελτία Τύπου</a>
+        <a href="#">Διδακτικό Υλικό</a>
+        <a href="#">Εκδρομές - Επισκέψεις</a>
+        <a href="#">Συμμετοχές σε εκδηλώσεις</a>
+        <a href="#">Διακρίσεις & Βραβεύσεις</a>
+        <a href="#">Γιορτές - Εκδηλώσεις</a>
+        <a href="#">Ο Δήμος μας</a>
+        <a href="#">Σύνδεσμοι</a>
+        <a href="#">Σύλλογος Γονέων και Κηδεμόνων</a>
+        <a href="#">Gallery</a>
+        <a href="#">Βιβλίο επισκεπτών</a>
+        <a href="#">Προσφορές Ταξιδιωτικών Γραφείων</a>
+    </div>
+
+    <div class="container">
+        <!-- Announcement Cards -->
+        <div class="card">
+            <h3>Ιστορικό</h3>
+        </div>
+        <div class="card">
+            <h3>Υποδομή</h3>
+        </div>
+        <div class="card">
+            <h3>Επιστολή προς τους γονείς</h3>
+        </div>
+        <div class="card">
+            <h3>Κανονισμός</h3>
+        </div>
+        <div class="card">
+            <h3>Εκπαιδευτικό προσωπικό</h3>
+        </div>
+        <div class="card">
+            <h3>Υπεύθυνοι τμημάτων</h3>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 1ο Γυμνάσιο Γέρακα - All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Dropdown menu functionality
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.classList.toggle('show');
+
+            if (dropdown.classList.contains('show')) {
+                setTimeout(() => {
+                    dropdown.classList.add('opened');  // Add overflow-y: auto after animation
+                }, 500);  // Time should match the transition duration
+            } else {
+                dropdown.classList.remove('opened');  // Remove scrolling before collapse
+            }
+        }
+    </script>
+</body>
+</html>
