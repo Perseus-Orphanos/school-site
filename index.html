@@ -62,8 +62,16 @@
             max-height: 800px;
         }
 
+        /* Hide scrollbar but allow scrolling */
         .dropdown.opened {
-            overflow-y: auto;
+            overflow-y: scroll;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* Internet Explorer */
+        }
+
+        /* Hides scrollbar for Chrome, Safari, and Opera */
+        .dropdown.opened::-webkit-scrollbar {
+            display: none;
         }
 
         .dropdown a {
@@ -198,6 +206,11 @@
 
         .search-bar button:hover {
             background-color: #45a049;
+        }
+
+        /* Main content */
+        main {
+            padding: 20px;
         }
 
         /* Slider Styling */
@@ -404,7 +417,7 @@
         <!-- Navigation Bar Centered -->
         <div class="nav-links">
             <a href="index.html">Αρχική</a>
-            <a href="school.html">Το Σχολείο</a> <!-- Redirect to the "school.html" page -->
+            <a href="school.html">Το Σχολείο</a>
             <a href="contact.html">Επικοινωνία</a>
             <a href="#" class="login">Login</a>
         </div>
@@ -431,6 +444,12 @@
         <a href="#">Gallery</a>
         <a href="#">Βιβλίο επισκεπτών</a>
         <a href="#">Προσφορές Ταξιδιωτικών Γραφείων</a>
+
+        <!-- New Menu Items -->
+        <a href="#">Προγράμματα</a>
+        <a href="#">Νομοθεσία</a>
+        <a href="#">Μαθητές</a>
+        <a href="#">Η Εφημερίδα μας</a>
     </div>
 
     <!-- Image Slider Section -->
