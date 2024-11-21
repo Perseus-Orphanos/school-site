@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Επικοινωνία - 1ο Γυμνάσιο Γέρακα</title>
     <style>
-        /* General Styling */
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -25,7 +25,7 @@
             position: relative;
         }
 
-        /* Hamburger menu styling */
+        
         .hamburger-menu {
             display: flex;
             flex-direction: column;
@@ -43,7 +43,7 @@
             transition: all 0.3s ease;
         }
 
-        /* Dropdown menu styling */
+        
         .dropdown {
             position: absolute;
             top: 60px;
@@ -76,7 +76,7 @@
             transition: color 0.3s ease;
         }
 
-        /* Hover effect for dropdown items */
+        
         .dropdown a::before {
             content: '';
             position: absolute;
@@ -100,7 +100,7 @@
             color: #ddd;
         }
 
-        /* Logo styling */
+        
         .logo {
             display: flex;
             align-items: center;
@@ -117,14 +117,14 @@
             margin-left: 10px;
         }
 
-        /* Centering Navigation Bar */
+        
         .nav-links {
             display: flex;
             justify-content: center;
             flex: 2;
         }
 
-        /* Fixing hover box centering and alignment */
+        
         .nav-links a {
             color: white;
             text-decoration: none;
@@ -137,7 +137,7 @@
             display: inline-block;
         }
 
-        /* Transparent rounded box on hover, centered */
+        
         .nav-links a::before {
             content: '';
             position: absolute;
@@ -168,7 +168,7 @@
             text-align: center;
         }
 
-        /* Search Bar */
+        
         .search-bar {
             display: flex;
             justify-content: flex-end;
@@ -200,7 +200,7 @@
             background-color: #45a049;
         }
 
-        /* Main Contact Information Styling */
+        
         .contact-container {
             max-width: 800px;
             margin: 40px auto;
@@ -251,7 +251,7 @@
 </head>
 <body>
     <header>
-        <!-- Hamburger Menu Icon -->
+        
         <div class="hamburger-menu" onclick="toggleDropdown()">
             <div></div>
             <div></div>
@@ -263,7 +263,7 @@
             <h1>1ο Γυμνάσιο Γέρακα</h1>
         </div>
 
-        <!-- Navigation Bar Centered -->
+        
         <div class="nav-links">
             <a href="index.html">Αρχική</a>
             <a href="school.html">Το Σχολείο</a>
@@ -271,14 +271,14 @@
             <a href="#" class="login">Login</a>
         </div>
 
-        <!-- Search Bar -->
+        
         <div class="search-bar">
             <input type="text" placeholder="Αναζήτηση...">
             <button>Αναζήτηση</button>
         </div>
     </header>
 
-    <!-- Dropdown Menu Section -->
+    
     <div class="dropdown" id="dropdownMenu">
         <a href="#">Χρήσιμα Έντυπα</a>
         <a href="#">Δελτία Τύπου</a>
@@ -295,7 +295,7 @@
         <a href="#">Προσφορές Ταξιδιωτικών Γραφείων</a>
     </div>
 
-    <!-- Main Contact Information Section -->
+    
     <div class="contact-container">
         <h2>Επικοινωνία</h2>
         <p><strong>Διεύθυνση:</strong> Ιωάννου Θεολόγου & Αγίας Λαύρας, 15344 Γέρακας Αττικής</p>
@@ -311,17 +311,17 @@
     </footer>
 
     <script>
-        // Dropdown menu functionality
+        
         function toggleDropdown() {
             const dropdown = document.getElementById('dropdownMenu');
             dropdown.classList.toggle('show');
 
             if (dropdown.classList.contains('show')) {
                 setTimeout(() => {
-                    dropdown.classList.add('opened');  // Add overflow-y: auto after animation
-                }, 500);  // Time should match the transition duration
+                    dropdown.classList.add('opened');  
+                }, 500);  
             } else {
-                dropdown.classList.remove('opened');  // Remove scrolling before collapse
+                dropdown.classList.remove('opened');  
             }
         }
     </script>
