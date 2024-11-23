@@ -8,7 +8,7 @@ This project is a modern remaster of my school's website, designed to improve fu
 - Performance Optimizations: Faster loading times and efficient code.
 # Disclaimer:
 This project is a personal educational exercise aimed at practicing and improving my HTML and CSS skills. The content of this website is not officially affiliated with, endorsed by, or representative of any government organization or the school it is inspired by.
-All text, images, and other media used in this project are for demonstration and educational purposes only. The content included in this project is not copyrighted by me and is used solely for demonstration and educational purposes. If any issues arise regarding the use of specific content, please contact me, and I will address them promptly.
+All text, images, and other media used in this project are for demonstration and educational purposes only. The name of the school used in this project is not copyrighted by me and is used solely for demonstration and educational purposes. If any issues arise regarding the use of specific content, please contact me, and I will address them promptly.
 # Creator and details:
 Hi! I'm Perseus and I have a passion for programming, PC building and more. This project is part of my journey to improve my skills in HTML and CSS, and to explore the world of web design by remastering my school’s website.
 
